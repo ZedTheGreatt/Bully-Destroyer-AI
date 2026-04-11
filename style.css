@@ -2,12 +2,12 @@
 
 :root {
     --primary: #4CAF88;
---primary-dark: #2F8F6B;
---secondary: #A8E6CF;
---accent: #FFD166;
---bg-light: #F6FBF8;
---text-dark: #2E2E2E;
---white: #FFFFFF;
+    --primary-dark: #2F8F6B;
+    --secondary: #A8E6CF;
+    --accent: #FFD166;
+    --bg-light: #F6FBF8;
+    --text-dark: #2E2E2E;
+    --white: #FFFFFF;
 }
 
 * {

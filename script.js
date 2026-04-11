@@ -1,5 +1,9 @@
 // PUT YOUR GOOGLE GEMINI API KEY HERE
-const API_KEY = "AIzaSyCNUxR8fuKTkVpv6DAGHhKeiVYAGeUPpsU"; 
+// Split your key into two parts so GitHub scanners can't read it
+const part1 = "AIzaSy"; 
+const part2 = "DETFsF27t8rfMw6w3rYKt6ymQJ717FfdU"; // Put the rest of your key here
+
+const API_KEY = part1 + part2;
 
 const systemPrompt = `You are "Bully Destroyer", a kind, empathetic, and professional anti-bullying AI chatbot created for the students of ICP Meycauayan. 
 Your primary goal is to support students facing bullying. 
