@@ -166,7 +166,14 @@ function removeTypingIndicator(id) {
 }
 
 function formatText(text) {
-  let formattedText = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+  const escapedText = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+  let formattedText = escapedText.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
   formattedText = formattedText.replace(/\*(.*?)\*/g, "<i>$1</i>");
   formattedText = formattedText.replace(/\n/g, "<br>");
   return formattedText;
