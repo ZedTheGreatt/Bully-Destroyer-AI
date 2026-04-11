@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Bully Destroyer | Anti-Bullying Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-shield-alt"></i> Bully Destroyer</div>
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#contact"><i class="fa fa-commenting"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h3>ICP Meycauayan</h3>
+            <h1>BULLY DESTROYER</h1>
+            <h2>Your Anonymous Anti-Bullying Support AI</h2>
+            <p>A safe, confidential space to report experiences and seek support.</p>
+            <a href="chat.html" class="btn-primary"><i class="fas fa-comments"></i> Get Started</a>
+        </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <section id="services" class="services-section">
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <div class="line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-bullseye card-icon"></i>
+                <h3>Website Focus</h3>
+                <p>We focus on helping ICP Meycauayan students. It ensures a safe space where you can freely express concerns without fear.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-secret card-icon"></i>
+                <h3>Anonymous Users</h3>
+                <p>Report and discuss incidents anonymously. Your concerns are kept strictly confidential and protected.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-robot card-icon"></i>
+                <h3>AI Chatbot</h3>
+                <p>Powered by AI to provide immediate emotional support and guidance before formal escalation.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-school card-icon"></i>
+                <h3>School Support</h3>
+                <p>We provide contact info for faculty members in case the AI determines you need immediate, real-world human assistance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <div class="line"></div>
+            <p>Bully Destroyer is an AI-powered anti-bullying chatbot designed to help and support victims anonymously. You will not have to worry about your identity, as we ensure complete anonymity. Our objective is to keep your information private, secure, and confidential.</p>
+            <p>This system provides initial assistance and a listening ear before you engage in a formal discussion with school teachers. While the AI is advanced, it cannot completely resolve all real-world concerns. Therefore, we provide school contact information to ensure you get the physical support you need. We are dedicated to ensuring every student feels heard, supported, and valued.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="line"></div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <a href="https://maps.app.goo.gl/epKB84UmzN6U4JY19" target="_blank">1st PMS Building, McArthur Highway, Brgy. Saluysoy</a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:icpolytechnic@gmail.com">icpolytechnic@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <a href="tel:+639690672868">(0969) 0672868</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <p>&copy; 2025 ICT Onyx Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

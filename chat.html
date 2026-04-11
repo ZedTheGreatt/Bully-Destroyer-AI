@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bully Destroyer | Live Support</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="loader"></div>
+    <p>Preparing your safe space...</p>
+  </div>
+
+  <!-- Main App Container -->
+  <div id="chat-container">
+    
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="back-btn" title="Go back to Home">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      <div class="header-info">
+        <h2>Bully Destroyer</h2>
+        <span class="status"><span class="dot"></span> Online - Safe & Anonymous</span>
+      </div>
+      <div class="header-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+    </header>
+
+    <!-- Chat Messages Area -->
+    <main id="messages">
+      <!-- JavaScript will inject messages here -->
+    </main>
+
+    <!-- Quick Actions (Scrollable) -->
+    <div class="quick-actions">
+      <button onclick="sendAI('I need some advice, I am being bullied.')">
+        <i class="fas fa-hands-helping"></i> Need Advice
+      </button>
+      <button onclick="sendAI('How do I report a bullying incident to my school anonymously?')">
+        <i class="fas fa-flag"></i> How to Report
+      </button>
+      
+      <!-- Custom Styled Select Dropdown -->
+      <div class="select-wrapper">
+        <select id="bullyingTypes" onchange="handleBullyingType()">
+          <option value="" disabled selected>Learn about...</option>
+          <option value="physical">Physical Bullying</option>
+          <option value="verbal">Verbal Bullying</option>
+          <option value="cyber">Cyberbullying</option>
+          <option value="social">Social Bullying</option>
+        </select>
+        <i class="fas fa-chevron-down dropdown-icon"></i>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <footer id="inputContainer">
+      <div class="input-wrapper">
+        <input type="text" id="userInput" placeholder="Type a message..." autocomplete="off" onkeypress="handleKeyPress(event)">
+        <button id="sendBtn" onclick="handleSend()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Ensure you link to the same JS file -->
+  <script src="script.js"></script>
+</body>
+</html>
