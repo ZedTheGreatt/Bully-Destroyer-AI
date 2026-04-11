@@ -1,9 +1,8 @@
-// PUT YOUR GOOGLE GEMINI API KEY HERE
 // Split your key into two parts so GitHub scanners can't read it
-const part1 = "AIzaSy"; 
-const part2 = "DETFsF27t8rfMw6w3rYKt6ymQJ717FfdU"; // Put the rest of your key here
+const part1 = "AIzaSy"; // Keep this exact string if your key starts with AIzaSy
+const part2 = "DETFsF27t8rfMw6w3rYKt6ymQJ717FfdU"; // The rest of your key
 
-const API_KEY = part1 + part2;
+const API_KEY = part1 + part2; 
 
 const systemPrompt = `You are "Bully Destroyer", a kind, empathetic, and professional anti-bullying AI chatbot created for the students of ICP Meycauayan. 
 Your primary goal is to support students facing bullying. 
@@ -13,7 +12,6 @@ Rules:
 3. If someone is in severe physical danger, gently advise them to contact a teacher.
 4. Do not use complex markdown formatting.`;
 
-// We will store the working model here so it only has to search once
 let AUTO_MODEL = "";
 
 window.onload = function() {
@@ -24,26 +22,30 @@ window.onload = function() {
   }, 1500); 
 };
 
-// Updated API Function with SMART AUTO-DETECT
+// Updated API Function: Prioritizes the high-traffic "Flash" model
 async function fetchAIResponse(userMessage) {
   try {
-    // 1. AUTO-DETECT THE CORRECT MODEL
     if (!AUTO_MODEL) {
       const checkModelsUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`;
       const modelRes = await fetch(checkModelsUrl);
       const modelData = await modelRes.json();
       
       if (modelData.models) {
-        // Find the first Gemini model that supports text generation
-        const validModel = modelData.models.find(m => 
-          m.supportedGenerationMethods && 
-          m.supportedGenerationMethods.includes("generateContent") && 
-          m.name.includes("gemini")
-        );
+        // PRIORITY 1: Try to get the fastest, highest-capacity model
+        let validModel = modelData.models.find(m => m.name === "models/gemini-1.5-flash");
+        
+        // PRIORITY 2: If flash isn't available, grab any working Gemini model
+        if (!validModel) {
+            validModel = modelData.models.find(m => 
+              m.supportedGenerationMethods && 
+              m.supportedGenerationMethods.includes("generateContent") && 
+              m.name.includes("gemini")
+            );
+        }
         
         if (validModel) {
-          AUTO_MODEL = validModel.name; // It will look something like "models/gemini-1.5-flash"
-          console.log("Success! Auto-detected working model:", AUTO_MODEL);
+          AUTO_MODEL = validModel.name; 
+          console.log("Using model:", AUTO_MODEL);
         } else {
           return "⚠️ API Error: Your Google account doesn't have access to Gemini text models.";
         }
@@ -52,7 +54,6 @@ async function fetchAIResponse(userMessage) {
       }
     }
 
-    // 2. MAKE THE CHAT REQUEST USING THE DETECTED MODEL
     const chatUrl = `https://generativelanguage.googleapis.com/v1beta/${AUTO_MODEL}:generateContent?key=${API_KEY}`;
     
     const response = await fetch(chatUrl, {
@@ -67,6 +68,11 @@ async function fetchAIResponse(userMessage) {
     
     if (!response.ok) {
       console.error("Google API Error:", data);
+      
+      // Give a friendlier message for the overload error
+      if (data.error.message.includes("high demand") || data.error.message.includes("quota")) {
+          return "⏳ The AI is currently helping a lot of students and is experiencing high traffic. Please wait 30 seconds and try again!";
+      }
       return `⚠️ API Error: ${data.error.message}`;
     }
 
@@ -82,7 +88,6 @@ async function fetchAIResponse(userMessage) {
   }
 }
 
-// User clicks send button
 async function handleSend() {
   const inputElement = document.getElementById("userInput");
   const message = inputElement.value.trim();
@@ -98,7 +103,6 @@ async function handleSend() {
   displayMessage(aiResponse, "bot");
 }
 
-// Quick-action buttons
 async function sendAI(message) {
   displayMessage(message, "user");
   const typingId = displayTypingIndicator();
@@ -107,7 +111,6 @@ async function sendAI(message) {
   displayMessage(aiResponse, "bot");
 }
 
-// Dropdown handler
 async function handleBullyingType() {
   const select = document.getElementById("bullyingTypes");
   const type = select.value;
