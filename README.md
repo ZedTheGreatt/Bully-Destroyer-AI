@@ -1,6 +1,6 @@
 # Bully Destroyer AI (v26.4)
 
-Bully Destroyer AI (v26.4)—formerly known as Bully Destroyer—is an AI-powered anti-bullying chatbot designed to help and support victims anonymously.
+Bully Destroyer AI (v26.4)—formerly known as Bully Destroyer—is now an AI-powered anti-bullying chatbot designed to help and support victims anonymously.
 
 You will not have to worry about your identity, as we ensure complete anonymity. Our objective is to keep your information private, secure, and confidential.
 
