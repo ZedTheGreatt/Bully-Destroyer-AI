@@ -11,12 +11,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo"><i class="fas fa-shield-alt"></i> Bully Destroyer <b class="ai-highlight">AI</b></div>
-        <ul class="nav-links">
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a href="#contact"><i class="fa fa-commenting"></i> Contact</a></li>
-        </ul>
+        <div class="navbar-right">
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#contact"><i class="fa fa-commenting"></i> Contact</a></li>
+            </ul>
+            <button id="darkModeToggleHome" class="dark-mode-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -104,6 +109,7 @@
         </div>
     </footer>
 
+    <script src="darkmode.js"></script>
     <script>
         // Smooth scrolling for navbar links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

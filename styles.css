@@ -12,6 +12,17 @@
   --border-color: #EAECEF;
 }
 
+/* Dark Mode Variables */
+body.dark {
+  --bg-page: #1a1a1a !important;
+  --chat-bg: #2d2d2d !important;
+  --user-bubble: #4CAF88 !important;
+  --bot-bubble: #3a3a3a !important;
+  --text-dark: #e0e0e0 !important;
+  --text-light: #b0b0b0 !important;
+  --border-color: #444444 !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -71,7 +82,7 @@ body {
 
 /* Header */
 #header {
-  background: white;
+  background: var(--chat-bg);
   color: var(--text-dark);
   padding: 16px 20px;
   display: flex;
@@ -111,6 +122,22 @@ body {
   border-radius: 50%; 
   display: inline-block;
 }
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.icon-btn:hover { background: var(--bg-page); }
 .header-icon i { font-size: 20px; color: var(--primary); padding: 8px;}
 
 /* Messages Area */
@@ -174,7 +201,7 @@ body {
 .quick-actions::-webkit-scrollbar { display: none; } /* Hide horizontal scrollbar */
 
 .quick-actions button {
-  background: white;
+  background: var(--bot-bubble);
   border: 1px solid var(--primary);
   color: var(--primary);
   padding: 8px 16px;
@@ -189,14 +216,18 @@ body {
   gap: 6px;
   scroll-snap-align: start;
 }
-.quick-actions button:hover { background: var(--primary); color: white; }
+.quick-actions button:hover { 
+  background: var(--primary); 
+  color: var(--chat-bg);
+  border-color: var(--primary);
+}
 
 /* Custom Native-looking Select Dropdown */
 .select-wrapper { position: relative; scroll-snap-align: start; }
 .select-wrapper select {
   appearance: none; /* Removes default OS styling */
   -webkit-appearance: none;
-  background: white;
+  background: var(--bot-bubble);
   border: 1px solid var(--primary);
   color: var(--primary);
   padding: 8px 30px 8px 16px;
@@ -206,6 +237,11 @@ body {
   cursor: pointer;
   outline: none;
   white-space: nowrap;
+  transition: all 0.2s;
+}
+.select-wrapper select:hover {
+  background: var(--primary);
+  color: var(--chat-bg);
 }
 .select-wrapper .dropdown-icon {
   position: absolute;
@@ -219,7 +255,7 @@ body {
 
 /* Input Area */
 #inputContainer {
-  background: white;
+  background: var(--chat-bg);
   padding: 12px 16px;
   border-top: 1px solid var(--border-color);
   /* Safe area for iPhones with the home bar */
@@ -232,12 +268,16 @@ body {
   border-radius: 24px;
   padding: 4px 6px 4px 16px;
   border: 1px solid transparent;
-  transition: border 0.3s;
+  transition: border 0.3s, background 0.3s, box-shadow 0.3s;
 }
 .input-wrapper:focus-within {
   border-color: var(--primary);
-  background: white;
+  background: var(--bot-bubble);
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+body.dark .input-wrapper:focus-within {
+  background: var(--bot-bubble);
 }
 
 #userInput {
@@ -249,7 +289,7 @@ body {
   outline: none;
   padding: 10px 0;
 }
-#userInput::placeholder { color: #A0AAB5; }
+#userInput::placeholder { color: var(--text-light); }
 
 #sendBtn {
   background: var(--primary);
@@ -287,4 +327,75 @@ b {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background-color: var(--chat-bg);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  color: var(--text-dark);
+}
+.close-btn {
+  color: var(--text-light);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-btn:hover { color: var(--text-dark); }
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-item i {
+  color: var(--primary);
+  font-size: 20px;
+  min-width: 20px;
+}
+.contact-item a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode overrides for quick actions */
+body.dark .quick-actions button {
+  background: #3a3a3a;
+  border: 1px solid #4CAF88;
+  color: #4CAF88;
+}
+
+body.dark .select-wrapper select {
+  background: #3a3a3a;
+  border: 1px solid #4CAF88;
+  color: #4CAF88;
 }

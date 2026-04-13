@@ -28,7 +28,7 @@ window.onload = function () {
   setTimeout(() => {
 
     document.getElementById("loadingScreen").style.display = "none";
-    document.getElementById("chatbox").style.display = "flex";
+    document.getElementById("chat-container").style.display = "flex";
 
     displayMessage(
       "Hi. I'm Bully Destroyer AI. You're safe here. How can I help you today?",
@@ -157,7 +157,7 @@ function displayMessage(text, sender) {
   label.innerHTML =
     sender === "user"
       ? "You"
-      : "<i class='fas fa-robot'></i> AI Support";
+      : "<i class='fas fa-robot'></i> Bully Destroyer AI";
 
   const message = document.createElement("div");
   message.className = `message ${sender}`;
@@ -221,4 +221,22 @@ function formatText(text) {
     .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
     .replace(/\*(.*?)\*/g, "<i>$1</i>")
     .replace(/\n/g, "<br>");
+}
+
+
+/* ---------------- CONTACT MODAL ---------------- */
+function showContactModal() {
+  document.getElementById("contactModal").style.display = "block";
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById("contactModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

@@ -27,8 +27,13 @@
         <h2>Bully Destroyer <b class="ai-highlight">AI</b></h2>
         <span class="status"><span class="dot"></span> Online - Safe & Anonymous</span>
       </div>
-      <div class="header-icon">
-        <i class="fas fa-shield-alt"></i>
+      <div class="header-icons">
+        <button id="darkModeToggle" class="icon-btn" title="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="header-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
       </div>
     </header>
 
@@ -44,6 +49,9 @@
       </button>
       <button onclick="sendAI('How do I report a bullying incident to my school anonymously?')">
         <i class="fas fa-flag"></i> How to Report
+      </button>
+      <button onclick="showContactModal()">
+        <i class="fas fa-phone"></i> School Contact
       </button>
       
       <!-- Custom Styled Select Dropdown -->
@@ -71,7 +79,39 @@
 
   </div>
 
+  <!-- Contact Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeContactModal()">&times;</span>
+      <h2>ICP Meycauayan Contact Info</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Address:</strong><br>
+            <a href="https://maps.app.goo.gl/epKB84UmzN6U4JY19" target="_blank">1st PMS Building, McArthur Highway, Brgy. Saluysoy</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email:</strong><br>
+            <a href="mailto:icpolytechnic@gmail.com">icpolytechnic@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Phone:</strong><br>
+            <a href="tel:+639690672868">(0969) 0672868</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Ensure you link to the same JS file -->
+  <script src="darkmode.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
