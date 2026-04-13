@@ -57,7 +57,7 @@ body {
 /* Main App Container */
 #chat-container {
   width: 100%;
-  max-width: 460px; /* Looks like a phone on desktop screens */
+  max-width: 470px; /* Looks like a phone on desktop screens */
   height: 92dvh;
   background: var(--chat-bg);
   border-radius: 24px;
@@ -276,4 +276,15 @@ body {
     border-radius: 0; 
     border: none;
   }
+}
+b {
+  font-size: 90%;
+  color: var(--bot-bubble);
+  border: 12px solid var(--primary);
+  border-radius: 33%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

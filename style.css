@@ -138,3 +138,14 @@ footer { background-color: var(--primary-dark); color: var(--white); padding: 30
     .hero-content h1 { font-size: 2.2rem; }
     .about-section { padding: 60px 5%; }
 }
+b {
+  font-size: 85%;
+  color: var(--white);
+  border: 16px solid var(--primary);
+  border-radius: 33%;
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
